@@ -1,0 +1,220 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+#root {
+  @apply font-sans;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Roboto", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-text: var(--text);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-alert: var(--alert);
+  --color-button-hover: var(--button-hover);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-ptt-inactive: var(--ptt-inactive);
+  --color-ptt-inuse: var(--ptt-inuse);
+  --color-ptt-active: var(--ptt-active);
+  --color-ptt-request: var(--ptt-request);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(99% 0.00011 271.152);
+  --foreground: oklch(0.145 0 0);
+  --text: oklch(0% 0 0);
+  --card: oklch(100% 0.00011 271.152);
+  --card-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --warning: oklch(60.108% 0.23134 27.282);
+  --alert: oklch(0.75 0.18 85);
+  --button-hover: oklch(0.922 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --ptt-inactive: oklch(0.85 0 0);
+  --ptt-inuse: var(--destructive);
+  --ptt-active: oklch(0.75 0.18 145);
+  --ptt-request: oklch(0.7 0.15 240);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --text: oklch(100% 0.00011 271.152);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(67.79% 0.21018 23.811);
+  --warning: oklch(60.108% 0.23134 27.282);
+  --alert: oklch(0.8 0.18 85);
+  --button-hover: oklch(0.423 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  --ptt-inactive: oklch(0.35 0 0);
+  --ptt-inuse: var(--destructive);
+  --ptt-active: oklch(0.65 0.18 145);
+  --ptt-request: oklch(0.6 0.15 240);
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* This is a Tailwind CSS directive.
+It tells Tailwind to group the CSS rules defined within this block into the base layer.
+Tailwind processes CSS in layers (base, components, utilities) to ensure proper ordering and override behavior.
+The base layer is typically used for global styles, CSS resets, and default element styling. */
+@layer base {
+  /* universal selector */
+  * {
+    @apply border-border outline-ring/50;
+  }
+  /* specifically to the <body> HTML element */
+  body {
+    @apply bg-background text-foreground;
+    /* margin & padding = 0 to remove default browser styles */
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    /* Smooth transition for the transform property */
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  /* The shrink effect when the button is actively clicked */
+  button:active {
+    transform: scale(0.96);
+  }
+
+  /* The shrink effect when a nav link is actively clicked */
+  a.nav-link:active {
+    transform: scale(0.96);
+  }
+
+  /* Optional: Prevents the effect if the user is scrolling on mobile */
+  @media (prefers-reduced-motion: reduce) {
+    button {
+      transition: none;
+    }
+    button:active {
+      transform: none;
+    }
+    a.nav-link:active {
+      transform: none;
+    }
+  }
+}
+
+.nav-link {
+  @apply relative hover:text-primary;
+  /* Add transition for the transform property for the click effect and color for hover */
+  transition:
+    transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease-in-out;
+}
+
+/* Underline pseudo-element for hover and active states */
+.nav-link::after {
+  content: "";
+  @apply absolute bottom-[-4px] left-0 h-[2px] w-full bg-primary;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+/* Underline animation for hover and active states */
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Active link style */
+.nav-link.active {
+  @apply text-primary;
+}

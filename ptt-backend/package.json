@@ -1,0 +1,24 @@
+{
+  "name": "ptt-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "serve": "node serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.5.0",
+    "mkcert": "^3.2.0",
+    "pdfkit": "^0.17.2",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
